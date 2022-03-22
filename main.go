@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"go-ethereum-learning/accounts"
 	"log"
 
 	"github.com/ethereum/go-ethereum/ethclient"
@@ -12,6 +13,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Printf("we have a connection... %v\n", client)
 
-	fmt.Printf("we have a connection... %v", client)
+	accounts.AccountBalances(client)
+	accounts.GeneratingNewWallets()
+	accounts.AddressCheck(client)
 }
